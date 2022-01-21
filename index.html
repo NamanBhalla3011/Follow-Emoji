@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Follow Me</title>
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="Css/styles.css">
+</head>
+
+<body>
+  <!-- <div class="infos">
+    <p id="x"></p>
+    <p id="y"></p>
+    <p id="radian"></p>
+    <p id="rot"></p>
+  </div> -->
+  <div class="face">
+    <div class="eyes">
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+  </div>
+  <script>
+    document.querySelector('Body').addEventListener('mousemove', eyeball);
+    function eyeball() {
+      var eyes = document.querySelectorAll('.eye'); 
+        eyes.forEach(function (eye) {
+        let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+        // document.getElementById('x').innerHTML = x;
+        let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+        // document.getElementById('y').innerHTML = y;
+        let radian = Math.atan2(event.pageX - x, event.pageY - y);
+        // document.getElementById('radian').innerHTML = radian;
+        let rot = (radian * (180 / Math.PI) * - 1) + 270;
+        // document.getElementById('rot').innerHTML = rot;
+        eye.style.transform = "rotate(" + rot + "deg)";
+      })
+    }
+  </script>
+</body>
+
+</html>
